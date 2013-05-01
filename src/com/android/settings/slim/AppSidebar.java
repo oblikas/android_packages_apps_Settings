@@ -126,6 +126,12 @@ public class AppSidebar extends SettingsPreferenceFragment implements
                     Settings.System.APP_SIDEBAR_ENABLED,
                     value ? 1 : 0);
             return true;
+        } else if (preference == mEnabledPref) {
+            boolean value = ((Boolean)newValue).booleanValue();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.APP_SIDEBAR_ENABLED,
+                    value ? 1 : 0);
+            return true;
         }
         return false;
     }
