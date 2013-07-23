@@ -50,6 +50,8 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.VolumePanel;
 
+import com.android.settings.cyanogenmod.VibratorIntensity;
+
 import java.util.Date;
 import java.util.Calendar;
 import java.util.List;
@@ -86,6 +88,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String SILENT_MODE_OFF = "off";
     private static final String SILENT_MODE_VIBRATE = "vibrate";
     private static final String SILENT_MODE_MUTE = "mute";
+    private static final String KEY_VIBRATOR_INTENSITY = "vibrator_intensity";
 
     private static final String[] NEED_VOICE_CAPABILITY = {
             KEY_RINGTONE, KEY_DTMF_TONE, KEY_CATEGORY_CALLS,
@@ -238,6 +241,10 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         };
 
         initDockSettings();
+
+        if (!VibratorIntensity.isSupported()) {
+            removePreference(KEY_VIBRATOR_INTENSITY);
+        }
     }
 
     @Override

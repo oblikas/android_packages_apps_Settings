@@ -50,6 +50,7 @@ import com.android.settings.DreamSettings;
 import com.android.settings.R;
 import com.android.settings.slim.DisplayRotation;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.cyanogenmod.DisplayColor;
 import com.android.settings.Utils;
 
 import java.util.ArrayList;
@@ -76,6 +77,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_TOUCHKEY_LIGHT = "touchkey_light_timeout";
     private static final String KEY_POWER_CRT_MODE = "system_power_crt_mode";
     private static final String KEY_POWER_CRT_SCREEN_OFF = "system_power_crt_screen_off";
+    private static final String KEY_DISPLAY_COLOR = "color_calibration";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -250,6 +252,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 == WifiDisplayStatus.FEATURE_STATE_UNAVAILABLE) {
             getPreferenceScreen().removePreference(mWifiDisplayPreference);
             mWifiDisplayPreference = null;
+        }
+
+        if (!DisplayColor.isSupported()) {
+            removePreference(KEY_DISPLAY_COLOR);
         }
     }
 
