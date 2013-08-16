@@ -119,6 +119,9 @@
 
     <string name="additional_options_title">Additional options</string>
 
+    <!-- RoundR -->
+    <string name="roundr_settings_title">RoundR</string>
+
     <!-- Power Widget  -->
     <string name="power_widget_title">Power widget</string>
     <string name="title_expanded_widget">Power widget</string>

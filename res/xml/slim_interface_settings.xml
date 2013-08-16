@@ -53,6 +53,15 @@
             android:targetPackage="com.tmobile.themechooser"
             android:targetClass="com.tmobile.themechooser.ThemeChooser" />
 
+    <PreferenceScreen
+        android:key="roundr_settings"
+        android:title="@string/roundr_settings_title">
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="mohammad.adib.roundr"
+            android:targetClass="mohammad.adib.roundr.MainActivity" />
+
     </PreferenceScreen>
 
     <PreferenceCategory
