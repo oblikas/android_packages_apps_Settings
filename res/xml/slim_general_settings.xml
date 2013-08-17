@@ -14,13 +14,13 @@
      limitations under the License.
 -->
 
-    <PreferenceScreen android:key="illusion_logo"
-            android:layout="@layout/logo_row" />
-
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/general_settings_options_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <PreferenceScreen android:key="illusion_logo"
+            android:layout="@layout/logo_row" />
 
     <PreferenceScreen
         android:key="chronus"

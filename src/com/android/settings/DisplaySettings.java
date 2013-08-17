@@ -50,7 +50,7 @@ import com.android.settings.DreamSettings;
 import com.android.settings.R;
 import com.android.settings.slim.DisplayRotation;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.cyanogenmod.DisplayColor;
+import com.android.settings.slim.DisplayColor;
 import com.android.settings.Utils;
 
 import java.util.ArrayList;
