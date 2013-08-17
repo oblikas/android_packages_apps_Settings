@@ -98,6 +98,12 @@
         <attr name="entryImages" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="SeekBarPreference">
+        <attr name="min" format="integer" />
+        <attr name="unitsLeft" format="string" />
+        <attr name="unitsRight" format="string" />
+    </declare-styleable>
+
     <declare-styleable name="CubicSplinePreviewView">
         <attr name="backgroundColor" format="color" />
         <attr name="foregroundColor" format="color" />
