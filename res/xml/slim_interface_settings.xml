@@ -24,7 +24,7 @@
 
     <PreferenceScreen
         android:key="halo"
-        android:fragment="com.android.settings.halo.Halo"
+        android:fragment="com.android.settings.halo.HaloSettings"
         android:title="@string/halo_settings_title"
         android:summary="@string/halo_settings_summary" />
 
