@@ -22,6 +22,10 @@
     <PreferenceScreen android:key="illusion_logo"
             android:layout="@layout/logo_row" />
 
+    <PreferenceCategory
+        android:key="navigation_settings_action_prefs"
+        android:title="@string/navigation_settings_options_title">
+
      <PreferenceScreen
         android:key="hardware_keys"
         android:fragment="com.android.settings.slim.HardwareKeys"
@@ -37,9 +41,11 @@
         android:fragment="com.android.settings.slim.PieControl"
         android:title="@string/pie_control_title" />
 
+    </PreferenceCategory>
+
     <PreferenceCategory
-        android:key="navigation_settings_action_prefs"
-        android:title="@string/navigation_settings_options_title">
+        android:key="misc_prefs"
+        android:title="@string/misc_title">
 
         <PreferenceScreen
             android:key="power_menu"

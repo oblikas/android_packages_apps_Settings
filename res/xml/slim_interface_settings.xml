@@ -44,28 +44,6 @@
         android:fragment="com.android.settings.slim.StatusBar"
         android:title="@string/status_bar_title" />
 
-    <PreferenceScreen
-        android:key="themes_settings"
-        android:title="@string/themes_settings_title">
-
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.tmobile.themechooser"
-            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
-
-    </PreferenceScreen>
-
-    <PreferenceScreen
-        android:key="roundr_settings"
-        android:title="@string/roundr_settings_title">
-
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="mohammad.adib.roundr"
-            android:targetClass="mohammad.adib.roundr.MainActivity" />
-
-    </PreferenceScreen>
-
     <PreferenceCategory
         android:key="interface_settings_action_prefs"
         android:title="@string/interface_settings_options_title">

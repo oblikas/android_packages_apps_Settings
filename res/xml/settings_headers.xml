@@ -69,7 +69,7 @@
     <!-- General -->
     <header
         android:id="@+id/general_settings"
-        android:icon="@drawable/ic_settings_slim"
+        android:icon="@drawable/ic_settings_general"
         android:fragment="com.android.settings.slim.GeneralSettings"
         android:title="@string/general_settings_title" />
 

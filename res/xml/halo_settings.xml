@@ -18,11 +18,10 @@
     android:title="@string/halo_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <CheckBoxPreference
+    <SwitchPreference
          android:key="halo_enabled"
          android:title="@string/halo_enabled_title"
-         android:summary="@string/halo_enabled_summary"
-         android:defaultValue="false" /> 
+         android:summary="@string/halo_enabled_summary" />
 
     <PreferenceScreen
          android:key="halo_app"
@@ -34,6 +33,45 @@
                  android:targetClass="com.paranoid.halo.MainActivity" />
     </PreferenceScreen>
 
+    <PreferenceCategory
+        android:key="halo_style_prefs"
+        android:title="@string/halo_style_title">
+
+    <CheckBoxPreference
+         android:key="halo_colors"
+         android:title="@string/halo_colors_title"
+         android:summary="@string/halo_colors_summary"
+         android:dependency="halo_enabled"
+         android:defaultValue="false" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="halo_circle_color"
+            android:title="@string/halo_circle_color_title"
+            android:dependency="halo_colors"
+            android:defaultValue="0xFF33B5E5"
+            alphaSlider="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="halo_effect_color"
+            android:title="@string/halo_effect_color_title"
+            android:summary="@string/halo_effect_color_summary"
+            android:dependency="halo_colors"
+            android:defaultValue="0xFF33B5E5"
+            alphaSlider="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="halo_bubble_color"
+            android:title="@string/halo_bubble_color_title"
+            android:dependency="halo_colors"
+            android:defaultValue="0xFF33B5E5"
+            alphaSlider="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="halo_bubble_text_color"
+            android:title="@string/halo_bubble_text_color_title"
+            android:dependency="halo_colors"
+            android:defaultValue="0xFFFFFFFF" />
+
      <ListPreference
          android:key="halo_size"
          android:dialogTitle="@string/halo_size_title"
@@ -42,6 +80,12 @@
          android:dependency="halo_enabled" 
          android:entries="@array/entries_halo_size"
          android:entryValues="@array/values_halo_size" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="halo_active_prefs"
+        android:title="@string/halo_active_title">
 
      <ListPreference
          android:key="halo_state"
@@ -71,5 +115,7 @@
          android:title="@string/halo_pause_title"
          android:dependency="halo_enabled" 
          android:summary="@string/halo_pause_summary" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

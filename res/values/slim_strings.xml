@@ -1615,8 +1615,16 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="halo_pause_title">HALO pause active app</string>
     <string name="halo_pause_summary">When opening an app with HALO the underlying app will get paused (enabled by default on low memory devices)</string>
 
+    <string name="halo_colors_title">Custom colors</string>
+    <string name="halo_colors_summary">Enable custom colors for HALO instead of the default theme colors</string>
+    <string name="halo_circle_color_title">Circle color</string>
+    <string name="halo_bubble_color_title">Speech bubble color</string>
+    <string name="halo_bubble_text_color_title">Speech bubble text color</string>
+    <string name="halo_effect_color_title">Effect color</string>
+    <string name="halo_effect_color_summary">Requires a systemui restart</string>
+
     <!-- App sidebar -->
-    <string name="app_sidebar_title">App Sidebar</string>
+    <string name="app_sidebar_title">App sidebar</string>
     <string name="app_sidebar_enable_title">Enable App Sidebar</string>
     <string name="app_sidebar_summary">Customize your app sidebar</string>
     <string name="app_sidebar_enable_summaryOn">\@appbar is enabled</string>
@@ -1645,5 +1653,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
     <string name="trigger_bottom_title">Trigger height</string>
     <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
+
+    <!-- Sub-Headers -->
+    <string name="quicklinks_title">Quicklinks</string>
+    <string name="misc_title">Miscellaneous</string>
+    <string name="halo_style_title">Style</string>
+    <string name="halo_active_title">Activity</string>
 
 </resources>

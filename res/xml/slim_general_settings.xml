@@ -22,6 +22,10 @@
     <PreferenceScreen android:key="illusion_logo"
             android:layout="@layout/logo_row" />
 
+    <PreferenceCategory
+        android:key="quicklinks_title"
+        android:title="@string/quicklinks_title">
+
     <PreferenceScreen
         android:key="app_sidebar"
         android:fragment="com.android.settings.slim.AppSidebar"
@@ -36,6 +40,34 @@
             android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
     </PreferenceScreen>
 
+    <PreferenceScreen
+        android:key="roundr_settings"
+        android:title="@string/roundr_settings_title">
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="mohammad.adib.roundr"
+            android:targetClass="mohammad.adib.roundr.MainActivity" />
+
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="themes_settings"
+        android:title="@string/themes_settings_title">
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.tmobile.themechooser"
+            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+
+    </PreferenceScreen>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="general_settings_options_prefs"
+        android:title="@string/general_settings_options_title">
+
     <!-- Profiles -->
     <PreferenceScreen
         android:fragment="com.android.settings.profiles.ProfilesSettings"
@@ -46,9 +78,6 @@
         android:fragment="com.android.settings.slim.WidgetsSettings"
         android:title="@string/navbar_widgets_title" />
 
-    <PreferenceCategory
-        android:key="general_settings_options_prefs"
-        android:title="@string/general_settings_options_title">
 
         <CheckBoxPreference
             android:key="dual_pane"
