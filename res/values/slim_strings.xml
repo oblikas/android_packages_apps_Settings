@@ -1575,11 +1575,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="color_green_title">Green</string>
     <string name="color_blue_title">Blue</string>
 
-    <!-- Hardware tunables - Key backlight -->
-    <string name="key_backlight_title">Backlight</string>
-    <string name="button_backlight_title">Button backlight brightness</string>
-    <string name="keyboard_backlight_title">Keyboard backlight brightness</string>
-
     <!-- Label for are-notifications-enabled checkbox in app details [CHAR LIMIT=20] -->
     <string name="app_halo_label_black">Blacklist HALO notifications</string>
     <string name="app_halo_label_white">Whitelist HALO notifications</string>
