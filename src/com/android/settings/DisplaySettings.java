@@ -101,7 +101,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mCrtOff;
     private ListPreference mScreenTimeoutPreference;
     private Preference mScreenSaverPreference;
-    private FontDialogPreference mFontSizePref;
+    private WarnedListPreference mFontSizePref;
 
     private WifiDisplayStatus mWifiDisplayStatus;
     private Preference mWifiDisplayPreference;
@@ -139,7 +139,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         disableUnusableTimeouts(mScreenTimeoutPreference);
         updateTimeoutPreferenceDescription(currentTimeout);
 
-        mFontSizePref = (FontDialogPreference) findPreference(KEY_FONT_SIZE);
+        mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
         mFontSizePref.setOnPreferenceClickListener(this);
 
@@ -369,7 +369,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
-    @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mTouchKeyLights) {
             int touchKeyLights = Integer.valueOf((String) objValue);
@@ -497,25 +496,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return false;
     }
 
-    /**
-     * Reads the current font size and sets the value in the summary text
-     */
-    public void readFontSizePreference(Preference pref) {
-        try {
-            mCurConfig.updateFrom(ActivityManagerNative.getDefault().getConfiguration());
-        } catch (RemoteException e) {
-            Log.w(TAG, "Unable to retrieve font size");
-        }
-
-        // report the current size in the summary text
-        final Resources res = getResources();
-        String fontDesc = FontDialogPreference.getFontSizeDescription(res, mCurConfig.fontScale);
-        int scalePercent = (int) (100.0f * mCurConfig.fontScale);
-
-        pref.setSummary(String.format(res.getString(R.string.summary_font_size),
-                fontDesc, scalePercent));
-    }
-
     public void writeFontSizePreference(Object objValue) {
         try {
             mCurConfig.fontScale = Float.parseFloat(objValue.toString());
@@ -523,6 +503,24 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } catch (RemoteException e) {
             Log.w(TAG, "Unable to save font size");
         }
+    }
+
+    public void readFontSizePreference(ListPreference pref) {
+        try {
+            mCurConfig.updateFrom(ActivityManagerNative.getDefault().getConfiguration());
+        } catch (RemoteException e) {
+            Log.w(TAG, "Unable to retrieve font size");
+        }
+
+        // mark the appropriate item in the preferences list
+        int index = floatToIndex(mCurConfig.fontScale);
+        pref.setValueIndex(index);
+
+        // report the current size in the summary text
+        final Resources res = getResources();
+        String[] fontSizeNames = res.getStringArray(R.array.entries_font_size);
+        pref.setSummary(String.format(res.getString(R.string.summary_font_size),
+                fontSizeNames[index]));
     }
 
     private void updateScreenSaverSummary() {

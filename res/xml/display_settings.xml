@@ -61,12 +61,6 @@
         android:title="@string/wifi_display_settings_title"
         android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
 
-        <com.android.settings.FontDialogPreference
-                android:key="font_size"
-                android:title="@string/title_font_size"
-                android:summary="@string/summary_font_size"
-                android:dialogTitle="@string/dialog_title_font_size" />
-
     <PreferenceCategory
         android:key="category_animation_options"
         android:title="@string/display_category_animation_options_title" >
