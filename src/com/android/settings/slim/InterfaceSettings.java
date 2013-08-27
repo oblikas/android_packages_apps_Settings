@@ -48,7 +48,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private static final String CATEGORY_INTERFACE = "interface_settings_action_prefs";
 
     private Preference mCustomLabel;
-    private Preference mLcdDensity;
     private Preference mRamBar;
     private CheckBoxPreference mUseAltResolver;
     private CheckBoxPreference mHighEndGfx;
@@ -77,16 +76,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         mCustomLabel.setOnPreferenceClickListener(mCustomLabelClicked);
 
         updateCustomLabelTextSummary();
-
-        mLcdDensity = findPreference("lcd_density_setup");
-        mLcdDensity.setOnPreferenceChangeListener(this);
-        String currentProperty = SystemProperties.get("ro.sf.lcd_density");
-        try {
-            newDensityValue = Integer.parseInt(currentProperty);
-        } catch (Exception e) {
-            prefs.removePreference(mLcdDensity);
-        }
-        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + currentProperty);
 
         mHighEndGfx = (CheckBoxPreference) findPreference(PREF_HIGH_END_GFX);
         mHighEndGfx.setOnPreferenceChangeListener(this);
