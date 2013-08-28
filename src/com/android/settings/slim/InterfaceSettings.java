@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.provider.Settings;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.PreferenceCategory;
@@ -160,7 +161,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                     (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mListViewAnimation) {
-            int listviewanimation = Integer.valueOf((String) objValue);
+            int listviewanimation = Integer.valueOf((String) newValue);
             int index = mListViewAnimation.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.LISTVIEW_ANIMATION,
@@ -168,7 +169,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
             return true;
         } else if (preference == mListViewInterpolator) {
-            int listviewinterpolator = Integer.valueOf((String) objValue);
+            int listviewinterpolator = Integer.valueOf((String) newValue);
             int index = mListViewInterpolator.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.LISTVIEW_INTERPOLATOR,
