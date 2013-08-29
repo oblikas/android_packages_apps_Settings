@@ -59,8 +59,8 @@
     </string-array>
 
     <string-array name="entries_screentimeout_widget">
-        <item>15s | 1m | 5m</item>
-        <item>30s | 2m | 5m</item>
+        <item>15с | 1м | 5м</item>
+        <item>30с | 2м | 5м</item>
     </string-array>
 
     <string-array name="values_screentimeout_widget" translatable="false">
@@ -83,8 +83,8 @@
     </string-array>
 
     <string-array name="entries_flash_widget">
-        <item>Normal</item>
-        <item>High</item>
+        <item>Нормальный</item>
+        <item>Высокий</item>
     </string-array>
 
     <string-array name="values_flash_widget" translatable="false">
@@ -93,9 +93,9 @@
     </string-array>
 
     <string-array name="haptic_feedback_entries">
-        <item>Use global setting</item>
-        <item>On</item>
-        <item>Off</item>
+        <item>Использовать системные настройки</item>
+        <item>Вкл</item>
+        <item>Выкл</item>
     </string-array>
 
     <string-array name="haptic_feedback_values" translatable="false">
@@ -106,8 +106,8 @@
 
     <!-- Power widget brightness slider -->
     <string-array name="power_widget_brightness_location_entries">
-        <item>Show</item>
-        <item>Don\'t Show</item>
+        <item>Показывать</item>
+        <item>Не показывать</item>
     </string-array>
 
     <string-array name="power_widget_brightness_location_values" translatable="false">
@@ -117,7 +117,7 @@
 
     <!-- Performance settings -->
     <string-array name="pref_zram_size_entries">
-        <item>Disabled</item>
+        <item>Отключено</item>
         <item>10%</item>
         <item>18% (default)</item>
         <item>26%</item>
@@ -144,9 +144,9 @@
 
     <!-- Profile mode options. -->
     <string-array name="profile_entries">
-        <item>On</item>
-        <item>Off</item>
-        <item>No override</item>
+        <item>Вкл</item>
+        <item>Выкл</item>
+        <item>Не переопределять</item>
     </string-array>
 
     <!-- Values for vibrate_entries matching constants in SoundSettings. Do not translate. -->
@@ -158,8 +158,8 @@
 
     <!-- Profile mode options. -->
     <string-array name="profile_connection_entries">
-        <item>Disable</item>
-        <item>Enable</item>
+        <item>Отключено</item>
+        <item>Включено</item>
     </string-array>
 
     <!-- Profile 2G-3G mode options. -->
@@ -220,10 +220,10 @@
 
     <!-- Volume Overlay options. -->
     <string-array name="volume_overlay_entries">
-        <item>Single</item>
-        <item>Expandable</item>
-        <item>Expanded</item>
-        <item>None</item>
+        <item>Одиночная</item>
+        <item>Расширяемая</item>
+        <item>Расширенная</item>
+        <item>Нет</item>
     </string-array>
 
     <!-- Values for Volume Overlay. Do not translate. -->
@@ -279,9 +279,9 @@
     </string-array>
 
     <string-array name="entries_status_bar_am_pm">
-        <item>Normal</item>
-        <item>Small</item>
-        <item>None</item>
+        <item>Нормальный</item>
+        <item>Маленький</item>
+        <item>Нет</item>
     </string-array>
 
     <string-array name="values_status_bar_am_pm" translatable="false">
@@ -291,9 +291,9 @@
     </string-array>
 
     <string-array name="clock_date_display_entries">
-        <item>Don\'t show</item>
-        <item>Small date</item>
-        <item>Regular date</item>
+        <item>Не показывать</item>
+        <item>Маленькая дата</item>
+        <item>Обычная дата</item>
     </string-array>
 
     <string-array name="clock_date_display_values" translatable="false">
@@ -303,9 +303,9 @@
     </string-array>
 
     <string-array name="clock_date_style_entries">
-        <item>Normal</item>
-        <item>Lowercase</item>
-        <item>Uppercase</item>
+        <item>Нормально</item>
+        <item>Строчные</item>
+        <item>Заглавные</item>
     </string-array>
 
     <string-array name="clock_date_style_values" translatable="false">
@@ -333,7 +333,7 @@
         <item>EEE MMMM dd</item>
         <item>EEEE dd/MM</item>
         <item>EEEE MM/dd</item>
-        <item>Custom java format</item>
+        <item>Произвольный формат Java</item>
     </string-array>
 
     <string-array name="clock_date_format_values">
@@ -355,7 +355,7 @@
         <item>EEE MMMM dd</item>
         <item>EEEE dd/MM</item>
         <item>EEEE MM/dd</item>
-        <item>Custom java format</item>
+        <item>Произвольный формат Java</item>
     </string-array>
 
     <string-array name="entries_status_bar_battery">
@@ -496,10 +496,10 @@
     </string-array>
 
     <string-array name="battery_bar_entries">
-        <item>Hide</item>
-        <item>Statusbar</item>
-        <item>Top of navbar</item>
-        <item>Bottom of navbar</item>
+        <item>Скрыть</item>
+        <item>Строка состояния</item>
+        <item>Верх строки навигации</item>
+        <item>Низ строки навигации</item>
     </string-array>
 
     <string-array name="battery_bar_values" translatable="false">
@@ -510,8 +510,8 @@
     </string-array>
 
     <string-array name="battery_bar_style_entries">
-        <item>Regular</item>
-        <item>Center-mirrored</item>
+        <item>Обычный</item>
+        <item>По центру в обе стороны</item>
     </string-array>
 
     <string-array name="battery_bar_style_values" translatable="false">
@@ -595,17 +595,17 @@
 
     <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi region code. -->
     <string-array name="wifi_countrycode_entries">
-        <item>United States</item>
-        <item>Canada, Taiwan</item>
-        <item>Germany</item>
-        <item>Europe</item>
-        <item>Japan, Russia</item>
-        <item>Australia</item>
-        <item>China</item>
-        <item>Korea</item>
-        <item>Turkey</item>
-        <item>Singapore</item>
-        <item>Brazil</item>
+        <item>США</item>
+        <item>Канада, Тайвань</item>
+        <item>Германия</item>
+        <item>Европа</item>
+        <item>Япония, Россия</item>
+        <item>Австралия</item>
+        <item>Китай</item>
+        <item>Корея</item>
+        <item>Турция</item>
+        <item>Сингапур</item>
+        <item>Бразилия</item>
     </string-array>
 
     <string-array name="wifi_countrycode_values" translatable="false">
@@ -1142,10 +1142,10 @@
 
     <!-- Notification behavior preferences -->
     <string-array name="notifs_beh_entries">
-        <item>Normal</item>
-        <item>Never expand</item>
-        <item>Always expand</item>
-        <item>Old style</item>
+        <item>Обычное</item>
+        <item>Не раскрывать</item>
+        <item>Раскрывать всегда</item>
+        <item>Старый стиль</item>
     </string-array>
     <string-array name="notifs_beh_values" translatable="false">
         <item>0</item>
@@ -1248,14 +1248,12 @@
     <string-array name="shortcut_action_entries">
         <item>@string/shortcut_action_back</item>
         <item>@string/shortcut_action_app</item>
-        <item>@string/shortcut_action_expanded_desktop</item>
         <item>@string/shortcut_action_home</item>
         <item>@string/shortcut_action_kill</item>
         <item>@string/shortcut_action_lastapp</item>
         <item>@string/shortcut_action_menu</item>
         <item>@string/shortcut_action_notifications</item>
         <item>@string/shortcut_action_ime</item>
-        <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_qs</item>
         <item>@string/shortcut_action_recent</item>
         <item>@string/shortcut_action_power</item>
@@ -1268,14 +1266,12 @@
     <string-array name="shortcut_action_values" translatable="false">
         <item>**back**</item>
         <item>**app**</item>
-        <item>**expanded_desktop**</item>
         <item>**home**</item>
         <item>**kill**</item>
         <item>**lastapp**</item>
         <item>**menu**</item>
         <item>**notifications**</item>
         <item>**ime**</item>
-        <item>**power_menu**</item>
         <item>**quicksettings**</item>
         <item>**recents**</item>
         <item>**power**</item>
@@ -1287,12 +1283,10 @@
 
     <string-array name="shortcut_action_navring_entries">
         <item>@string/shortcut_action_app</item>
-        <item>@string/shortcut_action_expanded_desktop</item>
         <item>@string/shortcut_action_kill</item>
         <item>@string/shortcut_action_lastapp</item>
         <item>@string/shortcut_action_notifications</item>
         <item>@string/shortcut_action_ime</item>
-        <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_qs</item>
         <item>@string/shortcut_action_ring_silent</item>
         <item>@string/shortcut_action_ring_vib</item>
@@ -1306,12 +1300,10 @@
 
     <string-array name="shortcut_action_navring_values" translatable="false">
         <item>**app**</item>
-        <item>**expanded_desktop**</item>
         <item>**kill**</item>
         <item>**lastapp**</item>
         <item>**notifications**</item>
         <item>**ime**</item>
-        <item>**power_menu**</item>
         <item>**quicksettings**</item>
         <item>**ring_silent**</item>
         <item>**ring_vib**</item>
@@ -1471,117 +1463,5 @@
     <string-array name="blacklist_policy_private_values" translatable="false">
         <item>1</item>
     </string-array>
-
-    <string-array name="entries_halo_state">
-        <item>@string/halo_state_black</item>
-        <item>@string/halo_state_white</item>
-    </string-array>
-
-    <string-array name="values_halo_state" translatable="false">
-        <item>1</item>
-        <item>0</item>
-    </string-array>
-
-    <string-array name="entries_halo_size">
-        <item>@string/halo_size_miniscule</item>
-        <item>@string/halo_size_small</item>
-        <item>@string/halo_size_default</item>
-        <item>@string/halo_size_large</item>
-        <item>@string/halo_size_gigantic</item>
-        <item>@string/halo_size_monster</item>
-    </string-array>
-
-    <string-array name="values_halo_size" translatable="false">
-        <item>0.6</item>
-        <item>0.8</item>
-        <item>1.0</item>
-        <item>1.2</item>
-        <item>1.4</item>
-        <item>1.6</item>
-    </string-array>
-
-    <!-- App sidebar -->
-    <string-array name="app_sidebar_position_entries" translatable="false">
-        <item>@string/app_sidebar_position_left</item>
-        <item>@string/app_sidebar_position_right</item>
-    </string-array>
-    <string-array name="app_sidebar_position_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-    </string-array>
-
-    <string-array name="tab_position_entries">
-        <item>Top</item>
-        <item>Middle</item>
-        <item>Bottom</item>
-    </string-array>
-    <string-array name="tab_position_entryValues">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <string-array name="tab_size_entries">
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
-    </string-array>
-    <string-array name="tab_size_entryValues">
-        <item>1.0</item>
-        <item>1.5</item>
-        <item>2.0</item>
-    </string-array>
-
-    <!-- Listview animation -->
-    <string-array name="listview_animation_entries">
-        <item>@string/listview_off</item>
-        <item>@string/listview_wave_left</item>
-        <item>@string/listview_wave_right</item>
-        <item>@string/listview_scale</item>
-        <item>@string/listview_alpha</item>
-        <item>@string/listview_stack_top</item>
-        <item>@string/listview_stack_bottom</item>
-        <item>@string/listview_unfold</item>
-        <item>@string/listview_fold</item>
-        <item>@string/listview_translate_left</item>
-        <item>@string/listview_translate_right</item>
-    </string-array>
-    
-    <string-array name="listview_animation_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-    </string-array>
-
-    <!-- Listview Interpolator -->
-    <string-array name="listview_interpolator_entries">
-        <item>@string/listview_off</item>
-        <item>@string/listview_accelerate_interpolator</item>
-        <item>@string/listview_decelerate_interpolator</item>
-        <item>@string/listview_accelerate_decelerate_interpolator</item>
-        <item>@string/listview_anticipate_interpolator</item>
-        <item>@string/listview_overshoot_interpolator</item>
-        <item>@string/listview_anticipate_overshoot_interpolator</item>
-        <item>@string/listview_bounce_interpolator</item>
-    </string-array>
-
-    <string-array name="listview_interpolator_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-    </string-array>  
 </resources>
 
