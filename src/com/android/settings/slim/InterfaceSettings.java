@@ -16,6 +16,12 @@
 
 package com.android.settings.slim;
 
+import java.lang.StringBuilder;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.*;
+
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -27,31 +33,38 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.provider.Settings;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.PreferenceCategory;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.text.Spannable;
+import android.util.Log;
 import android.widget.EditText;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 public class InterfaceSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+    private static final String TAG = "InterfaceSettings";
 
     private static final String PREF_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String PREF_HIGH_END_GFX = "high_end_gfx";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String PREF_RECENTS_RAM_BAR = "recents_ram_bar";
+    private static final String PREF_LISTVIEW_ANIMATION = "listview_animation";
+    private static final String PREF_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String CATEGORY_INTERFACE = "interface_settings_action_prefs";
 
     private Preference mCustomLabel;
-    private Preference mLcdDensity;
     private Preference mRamBar;
     private CheckBoxPreference mUseAltResolver;
     private CheckBoxPreference mHighEndGfx;
+    private ListPreference mListViewAnimation;
+    private ListPreference mListViewInterpolator;
 
     private String mCustomLabelText = null;
     private int newDensityValue;
@@ -72,21 +85,26 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         mUseAltResolver.setChecked(Settings.System.getInt(
                 getActivity().getContentResolver(),
                 Settings.System.ACTIVITY_RESOLVER_USE_ALT, 0) == 1);
+        
+	//ListView Animations
+        mListViewAnimation = (ListPreference) findPreference(PREF_LISTVIEW_ANIMATION);
+        int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
+            Settings.System.LISTVIEW_ANIMATION, 1);
+        mListViewAnimation.setValue(String.valueOf(listviewanimation));
+        mListViewAnimation.setSummary(mListViewAnimation.getEntry());
+        mListViewAnimation.setOnPreferenceChangeListener(this);
+
+        mListViewInterpolator = (ListPreference) findPreference(PREF_LISTVIEW_INTERPOLATOR);
+        int listviewinterpolator = Settings.System.getInt(getActivity().getContentResolver(),
+            Settings.System.LISTVIEW_INTERPOLATOR, 0);
+        mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
+        mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
+        mListViewInterpolator.setOnPreferenceChangeListener(this);
 
         mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
         mCustomLabel.setOnPreferenceClickListener(mCustomLabelClicked);
 
         updateCustomLabelTextSummary();
-
-        mLcdDensity = findPreference("lcd_density_setup");
-        mLcdDensity.setOnPreferenceChangeListener(this);
-        String currentProperty = SystemProperties.get("ro.sf.lcd_density");
-        try {
-            newDensityValue = Integer.parseInt(currentProperty);
-        } catch (Exception e) {
-            prefs.removePreference(mLcdDensity);
-        }
-        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + currentProperty);
 
         mHighEndGfx = (CheckBoxPreference) findPreference(PREF_HIGH_END_GFX);
         mHighEndGfx.setOnPreferenceChangeListener(this);
@@ -105,7 +123,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         mRamBar = findPreference(PREF_RECENTS_RAM_BAR);
         mRamBar.setOnPreferenceChangeListener(this);
         updateRamBar();
-
     }
 
     private void updateCustomLabelTextSummary() {
@@ -151,6 +168,22 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HIGH_END_GFX_ENABLED,
                     (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mListViewAnimation) {
+            int listviewanimation = Integer.valueOf((String) newValue);
+            int index = mListViewAnimation.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LISTVIEW_ANIMATION,
+                    listviewanimation);
+            mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+            return true;
+        } else if (preference == mListViewInterpolator) {
+            int listviewinterpolator = Integer.valueOf((String) newValue);
+            int index = mListViewInterpolator.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LISTVIEW_INTERPOLATOR,
+                    listviewinterpolator);
+            mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
             return true;
         }
         return false;
