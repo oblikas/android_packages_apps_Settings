@@ -53,6 +53,8 @@ import android.widget.Toast;
 import com.android.internal.util.slim.ButtonConfig;
 import com.android.internal.util.slim.ButtonsConstants;
 import com.android.internal.util.slim.ButtonsHelper;
+import com.android.internal.util.slim.DeviceSupportUtils;
+import com.android.internal.util.slim.DeviceSupportUtils.FilteredDeviceFeaturesArray;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
@@ -175,8 +177,12 @@ public class ButtonsListViewSettings extends ListFragment implements
 
         mDisableMessage = (TextView) view.findViewById(R.id.disable_message);
 
-        mActionDialogValues = res.getStringArray(res.getIdentifier(mActionValuesKey, "array", "com.android.settings"));
-        mActionDialogEntries = res.getStringArray(res.getIdentifier(mActionEntriesKey, "array", "com.android.settings"));
+        FilteredDeviceFeaturesArray finalActionDialogArray = new FilteredDeviceFeaturesArray();
+        finalActionDialogArray = DeviceSupportUtils.filterUnsupportedDeviceFeatures(mActivity,
+            res.getStringArray(res.getIdentifier(mActionValuesKey, "array", "com.android.settings")),
+            res.getStringArray(res.getIdentifier(mActionEntriesKey, "array", "com.android.settings")));
+        mActionDialogValues = finalActionDialogArray.values;
+        mActionDialogEntries = finalActionDialogArray.entries;
 
         mPicker = new ShortcutPickerHelper(this, this);
 
@@ -348,6 +354,10 @@ public class ButtonsListViewSettings extends ListFragment implements
     private void updateButton(String action, String description, String icon,
                 int which, boolean longpress) {
 
+        if (!longpress && checkForDuplicateMainNavButtons(action)) {
+            return;
+        }
+
         ButtonConfig button = mButtonConfigsAdapter.getItem(which);
         mButtonConfigsAdapter.remove(button);
 
@@ -371,6 +381,23 @@ public class ButtonsListViewSettings extends ListFragment implements
         mButtonConfigsAdapter.insert(button, which);
         showDisableMessage(false);
         setConfig(mButtonConfigs, false);
+    }
+
+    private boolean checkForDuplicateMainNavButtons(String action) {
+        ButtonConfig button;
+        for (int i = 0; i < mButtonConfigs.size(); i++) {
+            button = mButtonConfigsAdapter.getItem(i);
+            if (button.getClickAction().equals(action)
+                && (action.equals(ButtonsConstants.ACTION_HOME)
+                || action.equals(ButtonsConstants.ACTION_BACK)
+                || action.equals(ButtonsConstants.ACTION_RECENTS))) {
+                Toast.makeText(mActivity,
+                        getResources().getString(R.string.shortcut_duplicate_entry),
+                        Toast.LENGTH_LONG).show();
+                return true;
+            }
+        }
+        return false;
     }
 
     private void deleteIconFileIfPresent(ButtonConfig button) {
@@ -513,6 +540,9 @@ public class ButtonsListViewSettings extends ListFragment implements
     }
 
     private void addNewButton(String action, String description) {
+        if (checkForDuplicateMainNavButtons(action)) {
+            return;
+        }
         ButtonConfig button = new ButtonConfig(
             action, description,
             ButtonsConstants.ACTION_NULL, getResources().getString(R.string.shortcut_action_none),

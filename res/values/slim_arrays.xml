@@ -130,18 +130,6 @@
         <item>26</item>
     </string-array>
 
-    <string-array name="dithering_entries" translatable="false">
-        <item>@string/dithering_no_dither</item>
-        <item>@string/dithering_color_banding</item>
-        <item>@string/dithering_blur_effect</item>
-    </string-array>
-
-    <string-array name="dithering_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
     <!-- Profile mode options. -->
     <string-array name="profile_entries">
         <item>On</item>
@@ -1039,30 +1027,15 @@
         <item>1005</item>
     </string-array>
 
-    <!-- Status Bar alpha mode-->
-    <string-array name="entries_status_bar_alpha_mode">
-        <item>@string/status_bar_alpha_mode_home</item>
-        <item>@string/status_bar_alpha_mode_default</item>
-        <item>@string/status_bar_alpha_mode_always</item>
+    <!-- Status and Nav Bar alpha mode-->
+    <string-array name="entries_status_nav_bar_alpha_mode">
+        <item>@string/status_nav_bar_alpha_mode_home</item>
+        <item>@string/status_nav_bar_alpha_mode_default</item>
     </string-array>
 
-    <string-array name="values_status_bar_alpha_mode" translatable="false">
+    <string-array name="values_status_nav_bar_alpha_mode" translatable="false">
         <item>0</item>
         <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <!-- Navigation Bar alpha mode-->
-    <string-array name="entries_nav_bar_alpha_mode">
-        <item>@string/nav_bar_alpha_mode_home</item>
-        <item>@string/nav_bar_alpha_mode_default</item>
-        <item>@string/nav_bar_alpha_mode_always</item>
-    </string-array>
-
-    <string-array name="values_nav_bar_alpha_mode" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
     </string-array>
 
     <!-- Expanded desktop -->
@@ -1263,12 +1236,14 @@
     <string-array name="shortcut_action_entries">
         <item>@string/shortcut_action_back</item>
         <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_expanded_desktop</item>
         <item>@string/shortcut_action_home</item>
         <item>@string/shortcut_action_kill</item>
         <item>@string/shortcut_action_lastapp</item>
         <item>@string/shortcut_action_menu</item>
         <item>@string/shortcut_action_notifications</item>
         <item>@string/shortcut_action_ime</item>
+        <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_qs</item>
         <item>@string/shortcut_action_recent</item>
         <item>@string/shortcut_action_power</item>
@@ -1281,12 +1256,14 @@
     <string-array name="shortcut_action_values" translatable="false">
         <item>**back**</item>
         <item>**app**</item>
+        <item>**expanded_desktop**</item>
         <item>**home**</item>
         <item>**kill**</item>
         <item>**lastapp**</item>
         <item>**menu**</item>
         <item>**notifications**</item>
         <item>**ime**</item>
+        <item>**power_menu**</item>
         <item>**quicksettings**</item>
         <item>**recents**</item>
         <item>**power**</item>
@@ -1298,10 +1275,12 @@
 
     <string-array name="shortcut_action_navring_entries">
         <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_expanded_desktop</item>
         <item>@string/shortcut_action_kill</item>
         <item>@string/shortcut_action_lastapp</item>
         <item>@string/shortcut_action_notifications</item>
         <item>@string/shortcut_action_ime</item>
+        <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_qs</item>
         <item>@string/shortcut_action_ring_silent</item>
         <item>@string/shortcut_action_ring_vib</item>
@@ -1315,10 +1294,12 @@
 
     <string-array name="shortcut_action_navring_values" translatable="false">
         <item>**app**</item>
+        <item>**expanded_desktop**</item>
         <item>**kill**</item>
         <item>**lastapp**</item>
         <item>**notifications**</item>
         <item>**ime**</item>
+        <item>**power_menu**</item>
         <item>**quicksettings**</item>
         <item>**ring_silent**</item>
         <item>**ring_vib**</item>
