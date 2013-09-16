@@ -31,8 +31,6 @@ import android.util.Slog;
 import android.widget.Toast;
 
 import com.android.settings.R;
-import com.android.settings.slim.ButtonBacklightBrightness;
-import com.android.settings.slim.KeyboardBacklightBrightness;
 import com.android.settings.util.ShortcutPickerHelper;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -54,9 +52,6 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
     private static final String HARDWARE_KEYS_CAMERA_PRESS = "hardware_keys_camera_press";
     private static final String HARDWARE_KEYS_CAMERA_LONG_PRESS = "hardware_keys_camera_long_press";
     private static final String HARDWARE_KEYS_SHOW_OVERFLOW = "hardware_keys_show_overflow";
-    private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
-    private static final String KEY_KEYBOARD_BACKLIGHT = "keyboard_backlight";
-    private static final String CATEGORY_BACKLIGHT = "key_backlight";
 
     // Available custom actions to perform on a key press.
     // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
@@ -121,9 +116,6 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
 
         mPicker = new ShortcutPickerHelper(this, this);
-
-        final PreferenceCategory backlightCategory =
-                (PreferenceCategory) prefSet.findPreference(CATEGORY_BACKLIGHT);
 
         mEnableCustomBindings = (CheckBoxPreference) prefSet.findPreference(
                 HARDWARE_KEYS_ENABLE_CUSTOM);
@@ -387,20 +379,6 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
             bindingsCategory.removePreference(mCameraLongPressAction);
         }
         // All done buttons
-
-        if (ButtonBacklightBrightness.isSupported() || KeyboardBacklightBrightness.isSupported()) {
-            if (!ButtonBacklightBrightness.isSupported()) {
-                removePreference(KEY_BUTTON_BACKLIGHT);
-                backlightCategory.removePreference(findPreference(KEY_BUTTON_BACKLIGHT));
-            }
-
-            if (!KeyboardBacklightBrightness.isSupported()) {
-                removePreference(KEY_KEYBOARD_BACKLIGHT);
-                backlightCategory.removePreference(findPreference(KEY_BUTTON_BACKLIGHT));
-            }
-        } else {
-            prefSet.removePreference(backlightCategory);
-        }
 
         mEnableCustomBindings.setChecked((Settings.System.getInt(getActivity().
                 getApplicationContext().getContentResolver(),
