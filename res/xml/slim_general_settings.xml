@@ -33,6 +33,13 @@
     android:summary="@string/app_sidebar_summary" />
 
     <PreferenceScreen
+        android:key="active_display"
+        android:fragment="com.android.settings.chameleonos.ActiveDisplaySettings"
+        android:title="@string/ad_settings_title"
+        android:summary="@string/ad_settings_summary">
+    </PreferenceScreen>
+
+    <PreferenceScreen
         android:key="chronus"
         android:title="@string/chronus_title" >
         <intent android:action="android.intent.action.MAIN"
