@@ -28,6 +28,10 @@
 
     <!-- Strings for Dialog deny button -->
     <string name="deny">Deny</string>
+    
+    <!-- Fix error cuz of active display -->
+    <string name="advanced_settings_title">Advanced settings</string>
+    
 
     <!-- Device Info --> <skip />
     <!-- Device Info screen. Used for a status item's value when the proper value is not known -->
